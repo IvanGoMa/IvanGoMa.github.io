@@ -1,139 +1,341 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ivan González Márquez | Backend Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="background-grid"></div>
+<div class="noise"></div>
+
 <div class="container">
 
-    <nav>
-        <div><strong>IvanGoMa</strong></div>
-        <div>
+    <nav class="navbar">
+        <div class="logo">IvanGoMa</div>
+
+        <div class="nav-links">
             <a href="projects.html">Projects</a>
-            <a href="https://github.com/IvanGoMa">Github</a>
+            <a href="https://github.com/IvanGoMa" target="_blank">Github</a>
+            <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/" target="_blank">LinkedIn</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class = "hero-content">
-            <h1>Ivan González Márquez</h1>
-            <p>Junior Backend Developer | Java & Spring Boot</p>
-            <p>Barcelona, Spain</p>
+    <section class="hero reveal">
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                Backend Developer
+            </span>
+
+            <h1>
+                Ivan González Márquez
+            </h1>
+
+            <p class="hero-subtitle">
+                Junior Backend Developer focused on Java, Spring Boot and scalable backend systems.
+            </p>
+
+            <div class="hero-tags">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>REST APIs</span>
+                <span>Docker</span>
+                <span>MySQL</span>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="mailto:99ivangm@gmail.com" class="primary-btn">
+                    Contact Me
+                </a>
+                <a href="projects.html" class="secondary-btn">
+                    View Projects
+                </a>
+
+                <a href="https://github.com/IvanGoMa" target="_blank" class="secondary-btn">
+                    Github
+                </a>
+            </div>
+
         </div>
+
         <div class="hero-image">
+            <div class="image-glow"></div>
             <img src="img/foto.jpg" alt="Profile">
         </div>
+        <a href="#about" class="scroll-arrow">
+    <span></span>
+</a>
     </section>
 
-    <section class="section">
-        <h2>About Me</h2>
-        <div class="card">
-            I am a Junior Backend Developer focused on Java and Spring Boot.
-            I enjoy building REST APIs, learning clean architecture principles
-            and improving my backend engineering skills.
+    <section class="section reveal" id="about">
+        <div class="section-title">
+            <span>About Me</span>
         </div>
-    </section>
 
-    <section class="section">
-        <h2>Contact</h2>
         <div class="card">
-            📧 99ivangm@gmail.com <br>
-            📞 +34 630 702 494 <br>
-            🔗 <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/">LinkedIn</a>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Tech Stack</h2>
-        <div class="card">
-            Java · Spring Boot · JPA/Hibernate · MySQL · REST APIs · JWT · Swagger · Docker · Git · Linux · Maven · Gradle · JUnit · Postman
+            <p>
+                I am a Junior Backend Developer focused on Java and Spring Boot.
+                I enjoy building REST APIs, learning clean architecture principles
+                and improving my backend engineering skills.
+            </p>
         </div>
     </section>
 
-    <section class="section">
-        <h2>Education</h2>
-        <div class="card">
-            <h3>CFGS Multiplatform Application Development</h3>
-            Institut TIC de Barcelona: 2024 - 2026
+    <section class="section reveal">
+        <div class="section-title">
+            <span>Tech Stack</span>
         </div>
-        <div class="card">
-            <h3>CFGS Multiplatform Audiovisual production</h3>
-            Escola de mitjans audiovisuals de Barcelona: 2019 - 2021
-        </div>
-    </section>
 
-    <section class="section">
-        <h2>Work Experience</h2>
-        <div class="card">
-            <h3>Software and Automation Developer Intern</h3>
-            <h4>SGAR</h4>
-            <h5>May 2025 - March 2026</h5>
-            <ul>
-                <li>N8N server configuration and deployment with Docker</li>
-                <li>Automation workflows development in N8N and Python</li>
-                <li>Backend and REST API development</li>
-                <li>Virtual machines design and deployment with Hyper-V</li>
-                <li>MySQL database design and implementation</li>
-                <li>Collaborative work with github</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Audio and Video Technician</h3>
-            <h4>LVP (Mediapro)</h4>
-            <h5>February 2022 - May 2025</h5>
-            <ul>
-                <li>Live broadcast director and technician</li>
-                <li>Rundown writing</li>
-                <li>Event setup and production</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Passanger service agent</h3>
-            <h4>Aena</h4>
-            <h5>September 2021 - February 2022</h5>
-            <ul>
-                <li>Incidences management</li>
-                <li>Cross-department coordination</li>
-            </ul>
+        <div class="tech-grid">
+
+            <div class="tech-card">Java</div>
+            <div class="tech-card">Spring Boot</div>
+            <div class="tech-card">JPA / Hibernate</div>
+            <div class="tech-card">MySQL</div>
+            <div class="tech-card">REST APIs</div>
+            <div class="tech-card">JWT</div>
+            <div class="tech-card">Swagger</div>
+            <div class="tech-card">Docker</div>
+            <div class="tech-card">Git</div>
+            <div class="tech-card">Linux</div>
+            <div class="tech-card">Maven</div>
+            <div class="tech-card">Gradle</div>
+            <div class="tech-card">JUnit</div>
+            <div class="tech-card">Postman</div>
+
         </div>
     </section>
 
+    <section class="section reveal">
 
+        <div class="section-header">
+            <div class="section-title">
+                <span>Featured Projects</span>
+            </div>
 
-    <section class="section">
-        <h2>Soft skills</h2>
-        <div class="card">
-            Stress managment · Autonomy · Fast learner · Team player
+            <a href="projects.html" class="section-link">
+                See all →
+            </a>
+        </div>
+
+        <div class="projects-preview">
+
+            <div class="project-card">
+                <div class="project-top">
+                    <span class="project-dot"></span>
+                    <span class="project-status">Production mindset</span>
+                </div>
+
+                <h3>Backend APIs</h3>
+
+                <p>
+                    REST API development using Java, Spring Boot and JWT authentication.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <span class="project-dot"></span>
+                    <span class="project-status">Continuous Learning</span>
+                </div>
+
+                <h3>My notes</h3>
+
+                <p>
+                    Personal learning notes, backend concepts and development documentation from my projects and studies. 
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section reveal">
+        <div class="section-title">
+            <span>Work Experience</span>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+
+                <div class="card timeline-card">
+                    <div class="job-header">
+                        <div>
+                            <h3>Software and Automation Developer Intern</h3>
+                            <h4>SGAR</h4>
+                        </div>
+
+                        <span class="date">
+                            May 2025 - March 2026
+                        </span>
+                    </div>
+
+                    <ul>
+                        <li>N8N server configuration and deployment with Docker</li>
+                        <li>Automation workflows development in N8N and Python</li>
+                        <li>Backend and REST API development</li>
+                        <li>Virtual machines design and deployment with Hyper-V</li>
+                        <li>MySQL database design and implementation</li>
+                        <li>Collaborative work with Github</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+
+                <div class="card timeline-card">
+                    <div class="job-header">
+                        <div>
+                            <h3>Audio and Video Technician</h3>
+                            <h4>LVP (Mediapro)</h4>
+                        </div>
+
+                        <span class="date">
+                            February 2022 - May 2025
+                        </span>
+                    </div>
+
+                    <ul>
+                        <li>Live broadcast director and technician</li>
+                        <li>Rundown writing</li>
+                        <li>Event setup and production</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+
+                <div class="card timeline-card">
+                    <div class="job-header">
+                        <div>
+                            <h3>Passenger Service Agent</h3>
+                            <h4>Aena</h4>
+                        </div>
+
+                        <span class="date">
+                            September 2021 - February 2022
+                        </span>
+                    </div>
+
+                    <ul>
+                        <li>Incidences management</li>
+                        <li>Cross-department coordination</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section class="section">
-        <h2>Languages</h2>
-        <div class="card">
-            Spanish and Catalan: Native<br>
-            English: B2<br>
-            German: B1<br>
+    <section class="section reveal">
+        <div class="section-title">
+            <span>Education</span>
+        </div>
+
+        <div class="grid-two">
+
+            <div class="card">
+                <h3>CFGS Multiplatform Application Development</h3>
+                <p>Institut TIC de Barcelona · 2024 - 2026</p>
+            </div>
+
+            <div class="card">
+                <h3>CFGS Multiplatform Audiovisual Production</h3>
+                <p>Escola de mitjans audiovisuals de Barcelona · 2019 - 2021</p>
+            </div>
+
         </div>
     </section>
 
-    <section class="section">
-        <h2>Other</h2>
-        <div class="card">
-            B1 driving license
+    <section class="section reveal">
+
+        <div class="grid-two">
+
+            <div>
+                <div class="section-title">
+                    <span>Contact</span>
+                </div>
+
+                <div class="card">
+                    📧 99ivangm@gmail.com <br><br>
+                    📞 +34 630 702 494 <br><br>
+                    🔗 <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title">
+                    <span>Languages & Soft Skills</span>
+                </div>
+
+                <div class="card">
+                    <strong>Languages</strong><br><br>
+
+                    Spanish and Catalan: Native<br>
+                    English: B2<br>
+                    German: B1<br><br>
+
+                    <strong>Soft Skills</strong><br><br>
+
+                    Stress management · Autonomy · Fast learner · Team player
+                </div>
+            </div>
+
         </div>
+
     </section>
-
-
-    
 
     <footer>
         © 2026 IvanGoMa
     </footer>
 
 </div>
+
+<script>
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("active");
+        }
+
+    });
+}, {
+    threshold: 0.1
+});
+
+reveals.forEach((el) => observer.observe(el));
+
+const scrollArrow = document.querySelector(".scroll-arrow");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 100){
+        scrollArrow.style.opacity = "0";
+    } else {
+        scrollArrow.style.opacity = "0.75";
+    }
+
+});
+
+</script>
 
 </body>
 </html>
