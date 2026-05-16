@@ -1,4 +1,7 @@
-
+---
+layout: note
+title: Java Basics
+---
 
 # Proyecto tres en raya
 
