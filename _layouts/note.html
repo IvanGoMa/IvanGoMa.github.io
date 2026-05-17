@@ -13,34 +13,83 @@
 </head>
 <body>
 
+{% comment %}
+  -- Determine nav items --
+  Categories = index.md files in subfolders under /notes/
+  Standalone = direct .md files in /notes/ (except index.md)
+{% endcomment %}
+{% assign categories = site.pages | where_exp: "p", "p.dir contains '/notes/' and p.dir != '/notes/' and p.name == 'index.md'" | sort: "title" %}
+{% assign standalone = site.pages | where_exp: "p", "p.dir == '/notes/' and p.name != 'index.md'" | sort: "title" %}
+
+{% comment %}
+  -- Determine if current page is main index --
+{% endcomment %}
+{% assign is_main_index = false %}
+{% if page.dir == '/notes/' and page.name == 'index.md' %}
+  {% assign is_main_index = true %}
+{% endif %}
+
+{% comment %}
+  -- Determine left sidebar items: articles in the same folder (excluding index.md) --
+{% endcomment %}
+{% assign folder_articles = site.pages | where_exp: "p", "p.dir == page.dir and p.name != 'index.md' and p.ext == '.md'" | sort: "title" %}
+
+{% comment %}
+  -- Determine layout mode --
+  main-index, category-index, article, standalone-article
+{% endcomment %}
+{% assign layout_mode = "article" %}
+{% if is_main_index %}
+  {% assign layout_mode = "main-index" %}
+{% elsif page.name == 'index.md' and page.dir != '/notes/' %}
+  {% assign layout_mode = "category-index" %}
+{% elsif page.dir == '/notes/' and page.name != 'index.md' %}
+  {% assign layout_mode = "standalone-article" %}
+{% endif %}
+
 <nav class="notes-nav">
     <div class="nav-inner">
         <a href="/notes/" class="nav-brand">Notes</a>
         <div class="nav-links">
-            {% assign note_pages = site.pages | where: "layout", "note" | where_exp: "p", "p.path != 'notes/index.md'" | sort: "title" %}
-            {% for note in note_pages %}
-            <a href="{{ note.url | relative_url }}"{% if page.url == note.url %} class="active"{% endif %}>{{ note.title }}</a>
+            {% for cat in categories %}
+            <a href="{{ cat.url | relative_url }}"{% if page.dir == cat.dir %} class="active"{% endif %}>{{ cat.title }}</a>
+            {% endfor %}
+            {% for art in standalone %}
+            <a href="{{ art.url | relative_url }}"{% if page.url == art.url %} class="active"{% endif %}>{{ art.title }}</a>
             {% endfor %}
             <a href="/#about" class="about-link">About me</a>
         </div>
     </div>
 </nav>
 
-<div class="layout-wrapper{% if page.path == 'notes/index.md' %} layout-wrapper--index{% endif %}">
+<div class="layout-wrapper
+  {% if layout_mode == 'main-index' %}layout-wrapper--main-index{% endif %}
+  {% if layout_mode == 'category-index' %}layout-wrapper--category{% endif %}
+  {% if layout_mode == 'standalone-article' %}layout-wrapper--standalone{% endif %}">
 
+  {% unless layout_mode == 'main-index' %}
+    {% if layout_mode == 'category-index' or layout_mode == 'article' %}
     <aside class="sidebar-left">
-        <h4>Sections</h4>
-        <nav id="left-nav" class="left-nav"></nav>
+      <h4>Articles</h4>
+      <nav class="left-nav">
+        {% for art in folder_articles %}
+        <a href="{{ art.url | relative_url }}"{% if page.url == art.url %} class="active"{% endif %}>{{ art.title }}</a>
+        {% endfor %}
+      </nav>
     </aside>
+    {% endif %}
+  {% endunless %}
 
-    <main class="content-area">
-        {{ content }}
-    </main>
+  <main class="content-area">
+    {{ content }}
+  </main>
 
-    <aside class="sidebar-right">
-        <h4>On this page</h4>
-        <nav id="right-toc" class="right-toc"></nav>
-    </aside>
+  {% unless layout_mode == 'main-index' or layout_mode == 'category-index' %}
+  <aside class="sidebar-right">
+    <h4>On this page</h4>
+    <nav id="right-toc" class="right-toc"></nav>
+  </aside>
+  {% endunless %}
 
 </div>
 

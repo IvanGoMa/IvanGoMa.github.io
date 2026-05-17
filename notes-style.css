@@ -389,10 +389,21 @@ body{
     margin-left:8px;
 }
 
-/* HIDE SIDEBARS ON INDEX */
+/* LAYOUT MODES */
 
-.layout-wrapper--index .sidebar-left,
-.layout-wrapper--index .sidebar-right{
+/* Main index: hide both sidebars */
+.layout-wrapper--main-index .sidebar-left,
+.layout-wrapper--main-index .sidebar-right{
+    display:none;
+}
+
+/* Category index: hide right sidebar */
+.layout-wrapper--category .sidebar-right{
+    display:none;
+}
+
+/* Standalone article: hide left sidebar */
+.layout-wrapper--standalone .sidebar-left{
     display:none;
 }
 
