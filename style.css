@@ -118,6 +118,7 @@ a{
 
 .nav-links a{
     color:var(--muted);
+    padding:7px 0;
     transition:0.3s;
 }
 
@@ -126,10 +127,10 @@ a{
 }
 
 .lang-toggle{
-    background:var(--accent-soft);
-    border:1px solid rgba(79,140,255,0.2);
-    color:var(--accent);
-    padding:6px 14px;
+    background:rgb(248, 226, 29);
+    border:1px solid rgba(250, 227, 26, 0.2);
+    color:rgb(0, 0, 0);
+    padding:7px 14px;
     border-radius:999px;
     font-weight:600;
     font-size:0.85rem;
@@ -139,8 +140,7 @@ a{
 }
 
 .lang-toggle:hover{
-    background:rgba(79,140,255,0.2);
-    transform:translateY(-2px);
+    background:rgba(252, 143, 18, 0.877);
 }
 
 /* HERO */

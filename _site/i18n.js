@@ -181,7 +181,7 @@ function setLang(lang) {
     }
   });
   const toggle = document.getElementById("lang-toggle");
-  if (toggle) toggle.textContent = lang === "en" ? "ES" : "EN";
+  if (toggle) toggle.textContent = lang === "en" ? "ESP" : "ENG";
 }
 
 function toggleLang() {
