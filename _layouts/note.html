@@ -14,15 +14,49 @@
 <body>
 
 {% comment %}
-  Nav items:
-    categories = index.md in subfolders under /notes/
-    standalone  = direct .md files in /notes/ (except index.md)
+  -- Build nav items --
 {% endcomment %}
-{% assign categories = site.pages | where_exp: "p", "p.dir contains '/notes/' and p.dir != '/notes/' and p.name == 'index.md'" | sort: "title" %}
-{% assign standalone = site.pages | where_exp: "p", "p.dir == '/notes/' and p.name != 'index.md'" | sort: "title" %}
+{% assign categories = '' | split: '' %}
+{% assign standalone = '' | split: '' %}
+{% assign folder_articles = '' | split: '' %}
+{% assign subcategories = '' | split: '' %}
+
+{% for p in site.pages %}
+  {% assign p_dir = p.dir %}
+  {% assign p_name = p.name %}
+
+  {% if p_dir contains '/notes/' %}
+
+    {% if p_dir == '/notes/' and p_name != 'index.md' %}
+      {% assign standalone = standalone | push: p %}
+
+    {% elsif p_name == 'index.md' and p_dir != '/notes/' %}
+      {% assign categories = categories | push: p %}
+
+    {% endif %}
+
+    {% if p_dir == page.dir and p_name != 'index.md' %}
+      {% assign folder_articles = folder_articles | push: p %}
+    {% endif %}
+
+    {% if p_name == 'index.md' and p_dir contains page.dir and p_dir != page.dir %}
+      {% assign p_depth = p_dir | split: '/' | size %}
+      {% assign target_depth = page.dir | split: '/' | size | plus: 1 %}
+      {% if p_depth == target_depth %}
+        {% assign subcategories = subcategories | push: p %}
+      {% endif %}
+    {% endif %}
+
+  {% endif %}
+{% endfor %}
+
+{% assign categories = categories | sort: "title" %}
+{% assign standalone = standalone | sort: "title" %}
+{% assign folder_articles = folder_articles | sort: "title" %}
+{% assign subcategories = subcategories | sort: "title" %}
 
 {% comment %}
-  Layout mode
+  -- Layout mode --
 {% endcomment %}
 {% assign is_main_index = false %}
 {% if page.dir == '/notes/' and page.name == 'index.md' %}
@@ -38,36 +72,21 @@
   {% assign layout_mode = "standalone-article" %}
 {% endif %}
 
-{% comment %}
-  Left sidebar:
-    articles in the same folder
-    + subcategories (directories one level deeper with index.md)
-{% endcomment %}
-{% assign folder_articles = site.pages | where_exp: "p", "p.dir == page.dir and p.name != 'index.md'" | sort: "title" %}
-
-{% assign page_depth = page.dir | split: '/' | size %}
-{% assign target_depth = page_depth | plus: 1 %}
-{% assign subcategories = '' | split: '' %}
-{% for p in site.pages %}
-  {% if p.name == 'index.md' and p.dir contains page.dir and p.dir != page.dir %}
-    {% assign p_depth = p.dir | split: '/' | size %}
-    {% if p_depth == target_depth %}
-      {% assign subcategories = subcategories | push: p %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
-
 <nav class="notes-nav">
     <div class="nav-inner">
         <a href="/notes/" class="nav-brand">Notes</a>
         <div class="nav-links">
             {% for cat in categories %}
-            <a href="{{ cat.url | relative_url }}"{% if page.dir == cat.dir or page.dir contains cat.dir and page.dir != '/notes/' %} class="active"{% endif %}>{{ cat.title }}</a>
+            {% assign is_active = false %}
+            {% if page.dir == cat.dir or page.dir contains cat.dir and page.dir != '/notes/' %}
+              {% assign is_active = true %}
+            {% endif %}
+            <a href="{{ cat.url | relative_url }}"{% if is_active %} class="active"{% endif %}>{{ cat.title }}</a>
             {% endfor %}
             {% for art in standalone %}
             <a href="{{ art.url | relative_url }}"{% if page.url == art.url %} class="active"{% endif %}>{{ art.title }}</a>
             {% endfor %}
-            <a href="/index.html" class="about-link">About me</a>
+            <a href="/#about" class="about-link">About me</a>
         </div>
     </div>
 </nav>
