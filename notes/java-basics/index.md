@@ -9,11 +9,11 @@ title: Java basics
 
 <div class="note-card-list">
 
-<a href="java-basic/record" class="note-card">
+<a href="record" class="note-card">
     <div class="note-card-title">Record</div>
 </a>
 
-<a href="java-basic/varargs" class="note-card">
+<a href="varargs" class="note-card">
     <div class="note-card-title">Varargs(...)</div>
 </a>
 

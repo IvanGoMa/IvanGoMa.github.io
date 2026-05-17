@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes | Notes</title>
+    <title>Varargs (...) | Notes</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,14 +25,14 @@
             
             <a href="/notes/java-basics/record.html">Record</a>
             
-            <a href="/notes/java-basics/varargs.html">Varargs (...)</a>
+            <a href="/notes/java-basics/varargs.html" class="active">Varargs (...)</a>
             
             <a href="/#about" class="about-link">About me</a>
         </div>
     </div>
 </nav>
 
-<div class="layout-wrapper layout-wrapper--index">
+<div class="layout-wrapper">
 
     <aside class="sidebar-left">
         <h4>Sections</h4>
@@ -40,30 +40,29 @@
     </aside>
 
     <main class="content-area">
-        <div class="notes-index">
+        <h1 id="varargs-">Varargs (…)</h1>
 
-<h1>Notes</h1>
+<h2 id="what-is-it">What is it</h2>
 
-<div class="note-card-list">
+<p>Used in the parameters of a function signature to indicate a variable amount of arguments. Java internally converts the arguments to an array.</p>
 
-<a href="java-basics" class="note-card">
-    <div class="note-card-title">Java Basics</div>
-    <div class="note-card-desc">Records, varargs, lambdas, and streams — core Java concepts</div>
-</a>
+<h2 id="restrictions">Restrictions</h2>
 
-<a href="now-learning" class="note-card">
-    <div class="note-card-title">Now learning</div>
-    <div class="note-card-desc">What I want to learn / improve next</div>
-</a>
+<p>There can only be one vararg in a function’s signature and it must be the last parameter.</p>
 
-<div class="note-card" style="opacity:0.5; cursor:default;">
-    <div class="note-card-title">Spring <span class="coming-soon-tag">Coming soon</span></div>
-    <div class="note-card-desc">Spring Boot, dependency injection, REST controllers, and JPA</div>
-</div>
+<h2 id="how-to-use-it">How to use it</h2>
+<p>Adding 3 dots after the variable type for the desired parameter</p>
 
-</div>
+<p>```java
+// This function will accept any numer of Strings. Varargs parameter added the last one.
+public void randomFunction(int value1, int value2, String… names){</p>
 
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// To access all names we iterate over it like we would do with an array
+for(String n: names){
+    System.out.println(n);
+} }
+</code></pre></div></div>
+
 
     </main>
 
