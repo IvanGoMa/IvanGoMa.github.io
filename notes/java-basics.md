@@ -1,52 +1,22 @@
 ---
 layout: note
-title: Java Basics
+title: Java basics
 ---
 
-# Proyecto tres en raya
+<div class="notes-index">
 
-## record
+<h1>Notes</h1>
 
-### Qué es
+<div class="note-card-list">
 
-dataclass inmutable  
-se accede a las propiedades con \<NombreClase\>.\<nombrePropiedad()
+<a href="java-basic/record" class="note-card">
+    <div class="note-card-title">Record</div>
+</a>
 
-public record Position(int fila, int columna){}  
-Position p \= new Position(1,2);  
-int fila \= p.fila();
+<a href="java-basic/varargs" class="note-card">
+    <div class="note-card-title">Varargs(...)</div>
+</a>
 
-### Cuándo usar records
+</div>
 
-Cuando tienes objetos que:
-
-* representan datos  
-* son inmutables  
-* no tienen lógica compleja  
-* son “value objects”
-
-Perfecto para:
-
-* coordenadas  
-* DTOs  
-* respuestas API  
-* eventos  
-* movimientos  
-* configuraciones
-
-# Varargs(...)
-
-### Qué es
-
-Se usa en los parámetros de una función para indicar cantidad variable de argumentos. Java lo convierte en un array.
-
-### Restricciones
-
-Solo puede haber un Vararg y debe ser el último parámetro
-
-# Por aprender
-
-1. Lambdas  
-2. Streams básicos(filter, map, forEach, toList)  
-3. Method references(::)  
-4. Streams avanzados
+</div>

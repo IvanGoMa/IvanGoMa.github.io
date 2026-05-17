@@ -3,7 +3,22 @@ layout: note
 title: Notes
 ---
 
-# Notes
+<div class="notes-index">
 
-- [Java Basics](java-basics)
-- [Spring](spring)
+<h1>Notes</h1>
+
+<div class="note-card-list">
+
+<a href="java-basics" class="note-card">
+    <div class="note-card-title">Java Basics</div>
+    <div class="note-card-desc">Records, varargs, lambdas, and streams — core Java concepts</div>
+</a>
+
+<div class="note-card" style="opacity:0.5; cursor:default;">
+    <div class="note-card-title">Spring <span class="coming-soon-tag">Coming soon</span></div>
+    <div class="note-card-desc">Spring Boot, dependency injection, REST controllers, and JPA</div>
+</div>
+
+</div>
+
+</div>

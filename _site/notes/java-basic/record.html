@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record | Notes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="/notes-style.css">
+</head>
+<body>
+
+<nav class="notes-nav">
+    <div class="nav-inner">
+        <a href="/notes/" class="nav-brand">Notes</a>
+        <div class="nav-links">
+            
+            
+            <a href="/notes/java-basics.html">Java basics</a>
+            
+            <a href="/notes/java-basic/record.html" class="active">Record</a>
+            
+            <a href="/notes/java-basic/varargs.html">Varargs (...)</a>
+            
+            <a href="/#about" class="about-link">About me</a>
+        </div>
+    </div>
+</nav>
+
+<div class="layout-wrapper">
+
+    <aside class="sidebar-left">
+        <h4>Sections</h4>
+        <nav id="left-nav" class="left-nav"></nav>
+    </aside>
+
+    <main class="content-area">
+        <h1 id="record">Record</h1>
+
+<h2 id="what-is-it">What is it</h2>
+
+<p>Java keyword. Used instead of <code class="language-plaintext highlighter-rouge">class</code> to create a class where all attributes are <code class="language-plaintext highlighter-rouge">private final</code>.</p>
+
+<h2 id="how-to-use-it">How to use it</h2>
+<p>We only need to write the constructor signature. It internally generates all the properties as <code class="language-plaintext highlighter-rouge">private final</code>, makes the assignements, and generates the getters an the methods <code class="language-plaintext highlighter-rouge">toString()</code>,<code class="language-plaintext highlighter-rouge">equals()</code> and <code class="language-plaintext highlighter-rouge">hashCode()</code>. The getters method names are equal to the name of the property, the don’t conatain the word “get”.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Defining the record</span>
+<span class="kd">public</span> <span class="n">record</span> <span class="nf">Position</span><span class="o">(</span><span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">column</span><span class="o">)</span> <span class="o">{}</span>
+
+<span class="c1">// Creating an instance</span>
+<span class="nc">Position</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Position</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="c1">// Accessing its values</span>
+<span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">row</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h2 id="when-to-use-records">When to use records</h2>
+
+<p>When you need and object that:</p>
+
+<ul>
+  <li>Represents data</li>
+  <li>Is final</li>
+  <li>Doesn’t need complex logic</li>
+</ul>
+
+<p>Perfect for:</p>
+
+<ul>
+  <li>Coordinates</li>
+  <li>DTOs</li>
+  <li>Configurations</li>
+</ul>
+
+    </main>
+
+    <aside class="sidebar-right">
+        <h4>On this page</h4>
+        <nav id="right-toc" class="right-toc"></nav>
+    </aside>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="/notes.js"></script>
+
+</body>
+</html>

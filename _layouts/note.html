@@ -2,29 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Notes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="/notes-style.css">
 </head>
 <body>
 
-<div class="container">
-
-    <nav>
-        <div><strong>Java Notes</strong></div>
-        <div>
-            <a href="/index.html">Home</a>
-            <a href="/projects.html">Projects</a>
-            <a href="/notes">Notes</a>
+<nav class="notes-nav">
+    <div class="nav-inner">
+        <a href="/notes/" class="nav-brand">Notes</a>
+        <div class="nav-links">
+            {% assign note_pages = site.pages | where: "layout", "note" | where_exp: "p", "p.path != 'notes/index.md'" | sort: "title" %}
+            {% for note in note_pages %}
+            <a href="{{ note.url | relative_url }}"{% if page.url == note.url %} class="active"{% endif %}>{{ note.title }}</a>
+            {% endfor %}
+            <a href="/#about" class="about-link">About me</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <section class="section">
+<div class="layout-wrapper{% if page.path == 'notes/index.md' %} layout-wrapper--index{% endif %}">
 
+    <aside class="sidebar-left">
+        <h4>Sections</h4>
+        <nav id="left-nav" class="left-nav"></nav>
+    </aside>
+
+    <main class="content-area">
         {{ content }}
-        
-    </section>
+    </main>
+
+    <aside class="sidebar-right">
+        <h4>On this page</h4>
+        <nav id="right-toc" class="right-toc"></nav>
+    </aside>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="/notes.js"></script>
 
 </body>
 </html>

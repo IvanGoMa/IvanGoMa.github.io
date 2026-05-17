@@ -2,82 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Java Basics</title>
-    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java basics | Notes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="/notes-style.css">
 </head>
 <body>
 
-<div class="container">
-
-    <nav>
-        <div><strong>Java Notes</strong></div>
-        <div>
-            <a href="/index.html">Home</a>
-            <a href="/projects.html">Projects</a>
-            <a href="/notes">Notes</a>
+<nav class="notes-nav">
+    <div class="nav-inner">
+        <a href="/notes/" class="nav-brand">Notes</a>
+        <div class="nav-links">
+            
+            
+            <a href="/notes/java-basics.html" class="active">Java basics</a>
+            
+            <a href="/notes/java-basic/record.html">Record</a>
+            
+            <a href="/notes/java-basic/varargs.html">Varargs (...)</a>
+            
+            <a href="/#about" class="about-link">About me</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <section class="section">
+<div class="layout-wrapper">
 
-        <h1 id="proyecto-tres-en-raya">Proyecto tres en raya</h1>
+    <aside class="sidebar-left">
+        <h4>Sections</h4>
+        <nav id="left-nav" class="left-nav"></nav>
+    </aside>
 
-<h2 id="record">record</h2>
+    <main class="content-area">
+        <div class="notes-index">
 
-<h3 id="qué-es">Qué es</h3>
+<h1>Notes</h1>
 
-<p>dataclass inmutable<br />
-se accede a las propiedades con &lt;NombreClase&gt;.&lt;nombrePropiedad()</p>
+<div class="note-card-list">
 
-<p>public record Position(int fila, int columna){}<br />
-Position p = new Position(1,2);<br />
-int fila = p.fila();</p>
+<a href="java-basic/record" class="note-card">
+    <div class="note-card-title">Record</div>
+</a>
 
-<h3 id="cuándo-usar-records">Cuándo usar records</h3>
-
-<p>Cuando tienes objetos que:</p>
-
-<ul>
-  <li>representan datos</li>
-  <li>son inmutables</li>
-  <li>no tienen lógica compleja</li>
-  <li>son “value objects”</li>
-</ul>
-
-<p>Perfecto para:</p>
-
-<ul>
-  <li>coordenadas</li>
-  <li>DTOs</li>
-  <li>respuestas API</li>
-  <li>eventos</li>
-  <li>movimientos</li>
-  <li>configuraciones</li>
-</ul>
-
-<h1 id="varargs">Varargs(…)</h1>
-
-<h3 id="qué-es-1">Qué es</h3>
-
-<p>Se usa en los parámetros de una función para indicar cantidad variable de argumentos. Java lo convierte en un array.</p>
-
-<h3 id="restricciones">Restricciones</h3>
-
-<p>Solo puede haber un Vararg y debe ser el último parámetro</p>
-
-<h1 id="por-aprender">Por aprender</h1>
-
-<ol>
-  <li>Lambdas</li>
-  <li>Streams básicos(filter, map, forEach, toList)</li>
-  <li>Method references(::)</li>
-  <li>Streams avanzados</li>
-</ol>
-
-        
-    </section>
+<a href="java-basic/varargs" class="note-card">
+    <div class="note-card-title">Varargs(...)</div>
+</a>
 
 </div>
+
+</div>
+
+    </main>
+
+    <aside class="sidebar-right">
+        <h4>On this page</h4>
+        <nav id="right-toc" class="right-toc"></nav>
+    </aside>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="/notes.js"></script>
 
 </body>
 </html>
