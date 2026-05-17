@@ -160,6 +160,12 @@ body{
     font-weight:500;
 }
 
+.sidebar-divider{
+    height:1px;
+    background:var(--border);
+    margin:16px 0;
+}
+
 /* MAIN CONTENT */
 
 .content-area{
@@ -403,7 +409,8 @@ body{
 }
 
 /* Standalone article: hide left sidebar */
-.layout-wrapper--standalone .sidebar-left{
+.layout-wrapper--standalone .sidebar-left,
+.layout-wrapper--standalone .sidebar-right{
     display:none;
 }
 

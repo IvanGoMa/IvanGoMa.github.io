@@ -18,6 +18,7 @@ public record Position(int row, int column) {}
 
 // Creating an instance
 Position p = new Position(1, 2);
+
 // Accessing its values
 int row = p.row();
 ```

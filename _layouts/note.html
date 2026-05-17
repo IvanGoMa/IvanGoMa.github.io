@@ -14,30 +14,21 @@
 <body>
 
 {% comment %}
-  -- Determine nav items --
-  Categories = index.md files in subfolders under /notes/
-  Standalone = direct .md files in /notes/ (except index.md)
+  Nav items:
+    categories = index.md in subfolders under /notes/
+    standalone  = direct .md files in /notes/ (except index.md)
 {% endcomment %}
 {% assign categories = site.pages | where_exp: "p", "p.dir contains '/notes/' and p.dir != '/notes/' and p.name == 'index.md'" | sort: "title" %}
 {% assign standalone = site.pages | where_exp: "p", "p.dir == '/notes/' and p.name != 'index.md'" | sort: "title" %}
 
 {% comment %}
-  -- Determine if current page is main index --
+  Layout mode
 {% endcomment %}
 {% assign is_main_index = false %}
 {% if page.dir == '/notes/' and page.name == 'index.md' %}
   {% assign is_main_index = true %}
 {% endif %}
 
-{% comment %}
-  -- Determine left sidebar items: articles in the same folder (excluding index.md) --
-{% endcomment %}
-{% assign folder_articles = site.pages | where_exp: "p", "p.dir == page.dir and p.name != 'index.md' and p.ext == '.md'" | sort: "title" %}
-
-{% comment %}
-  -- Determine layout mode --
-  main-index, category-index, article, standalone-article
-{% endcomment %}
 {% assign layout_mode = "article" %}
 {% if is_main_index %}
   {% assign layout_mode = "main-index" %}
@@ -47,35 +38,68 @@
   {% assign layout_mode = "standalone-article" %}
 {% endif %}
 
+{% comment %}
+  Left sidebar:
+    articles in the same folder
+    + subcategories (directories one level deeper with index.md)
+{% endcomment %}
+{% assign folder_articles = site.pages | where_exp: "p", "p.dir == page.dir and p.name != 'index.md'" | sort: "title" %}
+
+{% assign page_depth = page.dir | split: '/' | size %}
+{% assign target_depth = page_depth | plus: 1 %}
+{% assign subcategories = '' | split: '' %}
+{% for p in site.pages %}
+  {% if p.name == 'index.md' and p.dir contains page.dir and p.dir != page.dir %}
+    {% assign p_depth = p.dir | split: '/' | size %}
+    {% if p_depth == target_depth %}
+      {% assign subcategories = subcategories | push: p %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
 <nav class="notes-nav">
     <div class="nav-inner">
         <a href="/notes/" class="nav-brand">Notes</a>
         <div class="nav-links">
             {% for cat in categories %}
-            <a href="{{ cat.url | relative_url }}"{% if page.dir == cat.dir %} class="active"{% endif %}>{{ cat.title }}</a>
+            <a href="{{ cat.url | relative_url }}"{% if page.dir == cat.dir or page.dir contains cat.dir and page.dir != '/notes/' %} class="active"{% endif %}>{{ cat.title }}</a>
             {% endfor %}
             {% for art in standalone %}
             <a href="{{ art.url | relative_url }}"{% if page.url == art.url %} class="active"{% endif %}>{{ art.title }}</a>
             {% endfor %}
-            <a href="/#about" class="about-link">About me</a>
+            <a href="/index.html" class="about-link">About me</a>
         </div>
     </div>
 </nav>
 
 <div class="layout-wrapper
-  {% if layout_mode == 'main-index' %}layout-wrapper--main-index{% endif %}
-  {% if layout_mode == 'category-index' %}layout-wrapper--category{% endif %}
-  {% if layout_mode == 'standalone-article' %}layout-wrapper--standalone{% endif %}">
+  {% if layout_mode == 'main-index' %} layout-wrapper--main-index{% endif %}
+  {% if layout_mode == 'category-index' %} layout-wrapper--category{% endif %}
+  {% if layout_mode == 'standalone-article' %} layout-wrapper--standalone{% endif %}">
 
   {% unless layout_mode == 'main-index' %}
     {% if layout_mode == 'category-index' or layout_mode == 'article' %}
     <aside class="sidebar-left">
+
+      {% if subcategories.size > 0 %}
+      <h4>Subcategories</h4>
+      <nav class="left-nav">
+        {% for sub in subcategories %}
+        <a href="{{ sub.url | relative_url }}"{% if page.dir == sub.dir %} class="active"{% endif %}>{{ sub.title }}</a>
+        {% endfor %}
+      </nav>
+      <div class="sidebar-divider"></div>
+      {% endif %}
+
+      {% if folder_articles.size > 0 %}
       <h4>Articles</h4>
       <nav class="left-nav">
         {% for art in folder_articles %}
         <a href="{{ art.url | relative_url }}"{% if page.url == art.url %} class="active"{% endif %}>{{ art.title }}</a>
         {% endfor %}
       </nav>
+      {% endif %}
+
     </aside>
     {% endif %}
   {% endunless %}
