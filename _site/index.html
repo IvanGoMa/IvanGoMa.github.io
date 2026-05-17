@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivan González Márquez | Backend Developer</title>
+    <title data-i18n="page.title">Ivan González Márquez | Backend Developer</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <script src="i18n.js" defer></script>
 </head>
 <body>
 
@@ -24,16 +25,17 @@
         <div class="logo">IvanGoMa</div>
 
         <div class="nav-links">
-            <a href="projects.html">Projects</a>
-            <a href="https://github.com/IvanGoMa" target="_blank">Github</a>
-            <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/" target="_blank">LinkedIn</a>
+            <a href="projects.html" data-i18n="nav.projects">Projects</a>
+            <a href="https://github.com/IvanGoMa" target="_blank" data-i18n="nav.github">Github</a>
+            <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/" target="_blank" data-i18n="nav.linkedin">LinkedIn</a>
+            <button id="lang-toggle" class="lang-toggle" onclick="toggleLang()">ES</button>
         </div>
     </nav>
 
     <section class="hero reveal">
         <div class="hero-content">
 
-            <span class="hero-badge">
+            <span class="hero-badge" data-i18n="hero.badge">
                 Backend Developer
             </span>
 
@@ -41,27 +43,27 @@
                 Ivan González Márquez
             </h1>
 
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
                 Junior Backend Developer focused on Java, Spring Boot and scalable backend systems.
             </p>
 
             <div class="hero-tags">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>REST APIs</span>
-                <span>Docker</span>
-                <span>MySQL</span>
+                <span data-i18n="hero.tag.java">Java</span>
+                <span data-i18n="hero.tag.spring">Spring Boot</span>
+                <span data-i18n="hero.tag.rest">REST APIs</span>
+                <span data-i18n="hero.tag.docker">Docker</span>
+                <span data-i18n="hero.tag.mysql">MySQL</span>
             </div>
 
             <div class="hero-buttons">
-                <a href="mailto:99ivangm@gmail.com" class="primary-btn">
+                <a href="mailto:99ivangm@gmail.com" class="primary-btn" data-i18n="hero.contact">
                     Contact Me
                 </a>
-                <a href="projects.html" class="secondary-btn">
+                <a href="projects.html" class="secondary-btn" data-i18n="hero.viewProjects">
                     View Projects
                 </a>
 
-                <a href="https://github.com/IvanGoMa" target="_blank" class="secondary-btn">
+                <a href="https://github.com/IvanGoMa" target="_blank" class="secondary-btn" data-i18n="hero.github">
                     Github
                 </a>
             </div>
@@ -79,11 +81,11 @@
 
     <section class="section reveal" id="about">
         <div class="section-title">
-            <span>About Me</span>
+            <span data-i18n="about.title">About Me</span>
         </div>
 
         <div class="card">
-            <p>
+            <p data-i18n-html="about.text">
                 I am a 26-year-old Junior Backend Developer recently graduated in
                 Multiplatform Application Development (DAM), mainly focused on Java and Spring Boot. <br><br>
 
@@ -96,7 +98,7 @@
 
     <section class="section reveal">
         <div class="section-title">
-            <span>Tech Stack</span>
+            <span data-i18n="tech.title">Tech Stack</span>
         </div>
 
         <div class="tech-grid">
@@ -128,10 +130,10 @@
 
         <div class="section-header">
             <div class="section-title">
-                <span>Featured Projects</span>
+                <span data-i18n="projects.title">Featured Projects</span>
             </div>
 
-            <a href="projects.html" class="section-link">
+            <a href="projects.html" class="section-link" data-i18n="projects.seeAll">
                 See all →
             </a>
         </div>
@@ -141,12 +143,12 @@
             <div class="project-card">
                 <div class="project-top">
                     <span class="project-dot"></span>
-                    <span class="project-status">Production mindset</span>
+                    <span class="project-status" data-i18n="projects.api.status">Production mindset</span>
                 </div>
 
-                <h3>Backend APIs</h3>
+                <h3 data-i18n="projects.api.title">Backend APIs</h3>
 
-                <p>
+                <p data-i18n="projects.api.desc">
                     REST API development using Java, Spring Boot and JWT authentication.
                 </p>
             </div>
@@ -154,12 +156,12 @@
             <div class="project-card">
                 <div class="project-top">
                     <span class="project-dot"></span>
-                    <span class="project-status">Continuous Learning</span>
+                    <span class="project-status" data-i18n="projects.notes.status">Continuous Learning</span>
                 </div>
 
-                <h3>My notes</h3>
+                <h3 data-i18n="projects.notes.title">My notes</h3>
 
-                <p>
+                <p data-i18n="projects.notes.desc">
                     Personal learning notes, backend concepts and development documentation from my projects and studies. 
                 </p>
             </div>
@@ -170,7 +172,7 @@
 
     <section class="section reveal">
         <div class="section-title">
-            <span>Work Experience</span>
+            <span data-i18n="experience.title">Work Experience</span>
         </div>
 
         <div class="timeline">
@@ -181,22 +183,22 @@
                 <div class="card timeline-card">
                     <div class="job-header">
                         <div>
-                            <h3>Software and Automation Developer Intern</h3>
-                            <h4>SGAR</h4>
+                            <h3 data-i18n="experience.job1.title">Software and Automation Developer Intern</h3>
+                            <h4 data-i18n="experience.job1.company">SGAR</h4>
                         </div>
 
-                        <span class="date">
+                        <span class="date" data-i18n="experience.job1.date">
                             May 2025 - March 2026
                         </span>
                     </div>
 
                     <ul>
-                        <li>N8N server configuration and deployment with Docker</li>
-                        <li>Automation workflows development in N8N and Python</li>
-                        <li>Backend and REST API development</li>
-                        <li>Virtual machines design and deployment with Hyper-V</li>
-                        <li>MySQL database design and implementation</li>
-                        <li>Collaborative work with Github</li>
+                        <li data-i18n="experience.job1.bullet1">N8N server configuration and deployment with Docker</li>
+                        <li data-i18n="experience.job1.bullet2">Automation workflows development in N8N and Python</li>
+                        <li data-i18n="experience.job1.bullet3">Backend and REST API development</li>
+                        <li data-i18n="experience.job1.bullet4">Virtual machines design and deployment with Hyper-V</li>
+                        <li data-i18n="experience.job1.bullet5">MySQL database design and implementation</li>
+                        <li data-i18n="experience.job1.bullet6">Collaborative work with Github</li>
                     </ul>
                 </div>
             </div>
@@ -207,19 +209,19 @@
                 <div class="card timeline-card">
                     <div class="job-header">
                         <div>
-                            <h3>Audio and Video Technician</h3>
-                            <h4>LVP (Mediapro)</h4>
+                            <h3 data-i18n="experience.job2.title">Audio and Video Technician</h3>
+                            <h4 data-i18n="experience.job2.company">LVP (Mediapro)</h4>
                         </div>
 
-                        <span class="date">
+                        <span class="date" data-i18n="experience.job2.date">
                             February 2022 - May 2025
                         </span>
                     </div>
 
                     <ul>
-                        <li>Live broadcast director and technician</li>
-                        <li>Rundown writing</li>
-                        <li>Event setup and production</li>
+                        <li data-i18n="experience.job2.bullet1">Live broadcast director and technician</li>
+                        <li data-i18n="experience.job2.bullet2">Rundown writing</li>
+                        <li data-i18n="experience.job2.bullet3">Event setup and production</li>
                     </ul>
                 </div>
             </div>
@@ -230,18 +232,18 @@
                 <div class="card timeline-card">
                     <div class="job-header">
                         <div>
-                            <h3>Passenger Service Agent</h3>
-                            <h4>Aena</h4>
+                            <h3 data-i18n="experience.job3.title">Passenger Service Agent</h3>
+                            <h4 data-i18n="experience.job3.company">Aena</h4>
                         </div>
 
-                        <span class="date">
+                        <span class="date" data-i18n="experience.job3.date">
                             September 2021 - February 2022
                         </span>
                     </div>
 
                     <ul>
-                        <li>Incidences management</li>
-                        <li>Cross-department coordination</li>
+                        <li data-i18n="experience.job3.bullet1">Incidences management</li>
+                        <li data-i18n="experience.job3.bullet2">Cross-department coordination</li>
                     </ul>
                 </div>
             </div>
@@ -251,19 +253,19 @@
 
     <section class="section reveal">
         <div class="section-title">
-            <span>Education</span>
+            <span data-i18n="education.title">Education</span>
         </div>
 
         <div class="grid-two">
 
             <div class="card">
-                <h3>CFGS Multiplatform Application Development</h3>
-                <p>Institut TIC de Barcelona · 2024 - 2026</p>
+                <h3 data-i18n="education.card1.title">CFGS Multiplatform Application Development</h3>
+                <p data-i18n="education.card1.desc">Institut TIC de Barcelona · 2024 - 2026</p>
             </div>
 
             <div class="card">
-                <h3>CFGS Multiplatform Audiovisual Production</h3>
-                <p>Escola de mitjans audiovisuals de Barcelona · 2019 - 2021</p>
+                <h3 data-i18n="education.card2.title">CFGS Multiplatform Audiovisual Production</h3>
+                <p data-i18n="education.card2.desc">Escola de mitjans audiovisuals de Barcelona · 2019 - 2021</p>
             </div>
 
         </div>
@@ -275,22 +277,22 @@
 
             <div>
                 <div class="section-title">
-                    <span>Contact</span>
+                    <span data-i18n="contact.title">Contact</span>
                 </div>
 
                 <div class="card">
-                    📧 99ivangm@gmail.com <br><br>
-                    📞 +34 630 702 494 <br><br>
-                    🔗 <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/" target="_blank">LinkedIn</a>
+                    <span data-i18n="contact.email">📧 99ivangm@gmail.com</span> <br><br>
+                    <span data-i18n="contact.phone">📞 +34 630 702 494</span> <br><br>
+                    🔗 <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/" target="_blank" data-i18n="contact.linkedin">LinkedIn</a>
                 </div>
             </div>
 
             <div>
                 <div class="section-title">
-                    <span>Languages</span>
+                    <span data-i18n="languages.title">Languages</span>
                 </div>
 
-                <div class="card">
+                <div class="card" data-i18n-html="languages.desc">
                     Spanish and Catalan: Native<br><br>
                     English: B2<br><br>
                     German: B1
@@ -302,7 +304,7 @@
 
     </section>
 
-    <footer>
+    <footer data-i18n="footer">
         © 2026 IvanGoMa
     </footer>
 

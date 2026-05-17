@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Projects | Ivan González Márquez</title>
+    <title data-i18n="projectsPage.titleTag">Projects | Ivan González Márquez</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <script src="i18n.js" defer></script>
 </head>
 
 <body>
@@ -23,29 +24,30 @@
 
     <nav class="navbar">
 
-        <div class="logo">
+        <div class="logo" data-i18n="projectsPage.logo">
             Projects
         </div>
 
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="https://github.com/IvanGoMa" target="_blank">Github</a>
-            <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/" target="_blank">LinkedIn</a>
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="https://github.com/IvanGoMa" target="_blank" data-i18n="nav.github">Github</a>
+            <a href="https://www.linkedin.com/in/ivan-gonzalez-marquez-/" target="_blank" data-i18n="nav.linkedin">LinkedIn</a>
+            <button id="lang-toggle" class="lang-toggle" onclick="toggleLang()">ES</button>
         </div>
 
     </nav>
 
     <section class="projects-hero reveal">
 
-        <span class="hero-badge">
+        <span class="hero-badge" data-i18n="projectsPage.badge">
             Backend Portfolio
         </span>
 
-        <h1>
+        <h1 data-i18n="projectsPage.title">
             Selected Projects
         </h1>
 
-        <p>
+        <p data-i18n="projectsPage.subtitle">
             Backend-focused projects built with Java, Spring Boot and modern development tools.
         </p>
 
@@ -58,11 +60,11 @@
             <div class="project-header">
 
                 <div>
-                    <span class="project-label">
+                    <span class="project-label" data-i18n="projectsPage.featured">
                         Featured Project
                     </span>
 
-                    <h2>Spring Boot E-commerce API</h2>
+                    <h2 data-i18n="projectsPage.ecommerce.title">Spring Boot E-commerce API</h2>
                 </div>
 
                 <div class="project-icon">
@@ -71,7 +73,7 @@
 
             </div>
 
-            <p class="project-description">
+            <p class="project-description" data-i18n="projectsPage.ecommerce.desc">
                 Backend API for an academic e-commerce platform focused on authentication,
                 REST architecture and database integration.
             </p>
@@ -87,7 +89,7 @@
 
                 <a href="https://github.com/hnnzpa/projecte2_AD/tree/projRel"
                    target="_blank"
-                   class="primary-btn">
+                   class="primary-btn" data-i18n="projectsPage.ecommerce.btn">
                     View Repository
                 </a>
 
@@ -100,11 +102,11 @@
             <div class="project-header">
 
                 <div>
-                    <span class="project-label">
+                    <span class="project-label" data-i18n="projectsPage.docs">
                         Documentation
                     </span>
 
-                    <h2>My Notes</h2>
+                    <h2 data-i18n="projectsPage.notes.title">My Notes</h2>
                 </div>
 
                 <div class="project-icon">
@@ -113,7 +115,7 @@
 
             </div>
 
-            <p class="project-description">
+            <p class="project-description" data-i18n="projectsPage.notes.desc">
                 Personal learning notes, backend concepts and development documentation
                 from my projects and studies.
             </p>
@@ -128,7 +130,7 @@
 
                 <a href="notes/index"
                    target="_blank"
-                   class="secondary-btn">
+                   class="secondary-btn" data-i18n="projectsPage.notes.btn">
                     Open Notes
                 </a>
 
@@ -141,11 +143,11 @@
             <div class="project-header">
 
                 <div>
-                    <span class="project-label">
+                    <span class="project-label" data-i18n="projectsPage.inProgress">
                         In Progress
                     </span>
 
-                    <h2>New Spring Boot Project</h2>
+                    <h2 data-i18n="projectsPage.newProject.title">New Spring Boot Project</h2>
                 </div>
 
                 <div class="project-icon">
@@ -154,7 +156,7 @@
 
             </div>
 
-            <p class="project-description">
+            <p class="project-description" data-i18n="projectsPage.newProject.desc">
                 Currently building a new backend-oriented project focused on scalability,
                 clean architecture and production-ready practices.
             </p>

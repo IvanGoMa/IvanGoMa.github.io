@@ -125,6 +125,24 @@ a{
     color:var(--text);
 }
 
+.lang-toggle{
+    background:var(--accent-soft);
+    border:1px solid rgba(79,140,255,0.2);
+    color:var(--accent);
+    padding:6px 14px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.85rem;
+    cursor:pointer;
+    transition:0.3s ease;
+    font-family:'Inter', sans-serif;
+}
+
+.lang-toggle:hover{
+    background:rgba(79,140,255,0.2);
+    transform:translateY(-2px);
+}
+
 /* HERO */
 
 .hero{
