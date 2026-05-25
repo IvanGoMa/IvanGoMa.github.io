@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean code | Notes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="/notes-style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="notes-nav">
+    <div class="nav-inner">
+        <a href="/notes/" class="nav-brand">Notes</a>
+        <div class="nav-links">
+            
+            
+            
+            <a href="/notes/architecture/" class="active">Architecture</a>
+            
+            
+            
+            <a href="/notes/java-basics/">Java basics</a>
+            
+            
+            <a href="/notes/now-learning.html">Now learning</a>
+            
+            <a href="/#about" class="about-link">About me</a>
+        </div>
+    </div>
+</nav>
+
+<div class="layout-wrapper
+  
+  
+  ">
+
+  
+    
+    <aside class="sidebar-left">
+
+      
+
+      
+      <h4>Articles</h4>
+      <nav class="left-nav">
+        
+        <a href="/notes/architecture/clean_code.html" class="active">Clean code</a>
+        
+      </nav>
+      
+
+    </aside>
+    
+  
+
+  <main class="content-area">
+    <h1 id="clean-code">Clean code</h1>
+
+<h2 id="what-is-it">What is it</h2>
+
+<p>Clean code is a philosophy and a set of principles that aim to make the code more readable, maintanable, testable and scalable.</p>
+
+<h2 id="principles">Principles</h2>
+
+<h3 id="kiss--keep-it-simple-stupid">KISS | Keep It Simple, Stupid</h3>
+
+<p>Your code has to be understandable, so try to keep the structure as simple as possible while aiming for readability. Shorter doesn’t mean simpler.</p>
+
+<h3 id="dry--dont-repeat-yourself">DRY | Don’t Repeat Yourself</h3>
+
+<p>Avoid code duplication whenever possible. If it’s repeated, make a function. That makes the code simpler to read and mantain.</p>
+
+<h3 id="solid">SOLID</h3>
+
+<p>SOLID is a set of five principles itself, referencing OOP</p>
+
+<h4 id="single-responsibility-principle">Single Responsibility Principle</h4>
+
+<p>Every class and function must have a single purpose.</p>
+
+<h4 id="openclosed-principle">Open/Closed Principle</h4>
+
+<p>Classes and interfaces should be open to extend but closed to modify. We can achieve this by using interfaces, abstract classes and inheritance.</p>
+
+<h4 id="liskov-substitution-principle">Liskov Substitution Principle</h4>
+
+<p>Child classes should be able to replace parent classes anywhere without affecting the application’s performance. It’s heavily related to the Open/Closed principle, if we inherit from a class is to add functionality, not modify the core of how it works.</p>
+
+<h4 id="interface-segregation-principle">Interface Segregation Principle</h4>
+
+<p>An Interface should be specific and well defined. It’s better to split big interfaces into smaller units. The user should only be exposed to what it needs.</p>
+
+<h4 id="dependency-inversion-principle">Dependency Inversion Principle</h4>
+
+<p>High-level modules should not depend on Low-level modules, both should depend on abstractions.</p>
+
+<h3 id="other-rules">Other rules</h3>
+
+<ol>
+  <li>Follow the conventions and standards of your coding language</li>
+  <li>Names should be defining of the variable/function/class purpose</li>
+  <li>Use named constants instead of vague values</li>
+  <li>Comment the code when the naming is not explanatory enough</li>
+  <li>Separate business rules from implementation</li>
+</ol>
+
+
+  </main>
+
+  
+  <aside class="sidebar-right">
+    <h4>On this page</h4>
+    <nav id="right-toc" class="right-toc"></nav>
+  </aside>
+  
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="/notes.js"></script>
+
+</body>
+</html>

@@ -14,6 +14,11 @@ title: Notes
     <div class="note-card-desc">Records, varargs, lambdas, and streams — core Java concepts</div>
 </a>
 
+<a href="architecture" class="note-card">
+    <div class="note-card-title">Architecture</div>
+    <div class="note-card-desc">Principles, patterns and architecture design </div>
+</a>
+
 <a href="now-learning" class="note-card">
     <div class="note-card-title">Now learning</div>
     <div class="note-card-desc">What I want to learn / improve next</div>
