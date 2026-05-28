@@ -8,3 +8,6 @@ title: Now learning
 1. Lambdas
 2. Basic streams(filter, map, forEach, toList)
 3. Method references (::)
+4. Testing (testing containers)
+5. Patterns
+6. Indexation (DB)
