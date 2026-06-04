@@ -73,7 +73,7 @@ const i18n = {
     "projectsPage.notes.desc": "Personal learning notes, backend concepts and development documentation from my projects and studies.",
     "projectsPage.notes.btn": "Open Notes",
     "projectsPage.inProgress": "In Progress",
-    "projectsPage.newProject.title": "New Spring Boot Project",
+    "projectsPage.newProject.title": "Household Workload Balancer",
     "projectsPage.newProject.desc": "Currently building a new backend-oriented project focused on scalability, clean architecture and production-ready practices.",
   },
 
@@ -151,7 +151,7 @@ const i18n = {
     "projectsPage.notes.desc": "Apuntes personales, conceptos de backend y documentaci\u00f3n de desarrollo de mis proyectos y estudios.",
     "projectsPage.notes.btn": "Abrir Apuntes",
     "projectsPage.inProgress": "En Progreso",
-    "projectsPage.newProject.title": "Nuevo Proyecto Spring Boot",
+    "projectsPage.newProject.title": "Balanceador de tareas del hogar",
     "projectsPage.newProject.desc": "Creando un nuevo proyecto backend enfocado en escalabilidad, arquitectura limpia y pr\u00e1cticas listas para producci\u00f3n.",
   }
 };
