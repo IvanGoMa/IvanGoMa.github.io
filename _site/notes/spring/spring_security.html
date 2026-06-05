@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Security + JWT | Notes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="/notes-style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="notes-nav">
+    <div class="nav-inner">
+        <a href="/notes/" class="nav-brand">Notes</a>
+        <div class="nav-links">
+            
+            
+            
+            <a href="/notes/architecture/">Architecture</a>
+            
+            
+            
+            <a href="/notes/java-basics/">Java basics</a>
+            
+            
+            
+            <a href="/notes/spring/" class="active">Spring</a>
+            
+            
+            <a href="/notes/now-learning.html">Now learning</a>
+            
+            <a href="/#about" class="about-link">About me</a>
+        </div>
+    </div>
+</nav>
+
+<div class="layout-wrapper
+  
+  
+  ">
+
+  
+    
+    <aside class="sidebar-left">
+
+      
+
+      
+      <h4>Articles</h4>
+      <nav class="left-nav">
+        
+        <a href="/notes/spring/spring_security.html" class="active">Spring Security + JWT</a>
+        
+      </nav>
+      
+
+    </aside>
+    
+  
+
+  <main class="content-area">
+    <h1 id="spring-security--jwt">Spring Security + JWT</h1>
+
+<h2 id="what-are-they">What are they</h2>
+
+<p>Spring Security is part of the Spring framework that helps create secure applications. JWT stands for JSON Web Token and is the standard we use to validate a user request. Together they allow us to ensure that a request was sent by the right registered user and that it hasn’t been intercepted and modified.</p>
+
+<h2 id="jwt">JWT</h2>
+
+<h3 id="structure">Structure</h3>
+
+<p>A JWT has three parts: header, payload and signature.</p>
+
+<p>The header specifies the token type (JWT in this case), and the algorithm used to create the signature.</p>
+
+<p>The payload’s main function is to tell us who sent the request and their role/permissions. It contains the user and token information.</p>
+
+<p>The signature is the most important part of the token. It’s generated using the header and payload’s information and encrypting it using a secret key.</p>
+
+<h3 id="what-does-it-accomplish">What does it accomplish</h3>
+
+<p>It ensures that the claims (the payload info) the token has are trusted. We can customize the claims, but typical ones are username, role and expiration time of the token.</p>
+
+<h3 id="how-does-it-accomplish-it">How does it accomplish it</h3>
+
+<p>As stated before we generate the signature encrypting the header and the payload with a secret key. This means if someone tried to change the claims, the payload information, it would then need to generate a new signature so that the token would be valid. And in order to generate a valid signature it would need the secret key.</p>
+
+<p>That way only someone with the secret key can generate and validate rightful tokens.</p>
+
+<h3 id="why-using-jwt-when-building-rest-apis">Why using JWT when building REST APIs</h3>
+
+<p>Because it allows stateless authentication. The token is sent in every request, and ensures it’s made by a registered user. That way the server doesn’t need to create and store a session, it doesn’t need to keep track of active users on the database and it doesn’t need to share a session state between all servers with our application, which highly improves scalability.</p>
+
+<h2 id="spring-security">Spring Security</h2>
+
+<p>It’s a framework that handles authorization and authentication in Spring. In other words it controls who the user is and what they can do. In a REST API context it’s the agent validating the JWTs. From now on I’ll focus exclusively on it’s usage on REST APIs.</p>
+
+<h3 id="filter-chain">Filter Chain</h3>
+
+<p>Spring Security intercepts all requests our application receives and sends them through a security filters chain before they reach the Controller. If the request is not valid for any of the filters it will be blocked and return an error. Once it successfully passes all filters the JWT’s claims are stored in the Security Context Holder.</p>
+
+<h3 id="security-context-holder">Security Context Holder</h3>
+
+<p>Allows all layers (controller, service…) to access the claims from the JWT. This is what enables authorization. Some endpoints are only usable if a certain role is stored in the context holder. Or we can make a function work on the user stored in the context holder (for example change username).</p>
+
+<h3 id="how-is-it-used">How is it used</h3>
+
+<p>To generate and validate JWTs, Spring Security needs a Database with a “users” table to validate authentication (and authorization if we have a role field). The User Entity needs to implement the UserDetails interface. Our user repository must implement JpaRepository in order to allow Spring Security to use Spring Data JPA to search users. It also uses UserDetailsService interface</p>
+
+<h3 id="layers">Layers</h3>
+
+<p>These are all the layers i used to implement Spring Security</p>
+
+<h4 id="pomxml">Pom.xml</h4>
+
+<p>Adding all necessary dependencies</p>
+
+<h4 id="applicationproperties">Application.properties</h4>
+
+<p>Contains the expiration time of the JWTs and the secret key used to create the signature (in environment variables, not visible)</p>
+
+<h4 id="user-entity">User entity</h4>
+
+<p>Implementing UserDetails so that SpringSecurity can use it to authenticate.</p>
+
+<h4 id="repository">Repository</h4>
+
+<p>Implementing JpaRepository</p>
+
+<h4 id="jwtservice">JwtService</h4>
+
+<p>Logic to generate and validate tokens and to extract the claims</p>
+
+<h4 id="jwtfilter">JwtFilter</h4>
+
+<p>First filter of the chain. Checks if the request has a jwt and validates it with JwtService. If it’s valid stores claims in SecurityContextHolder</p>
+
+<h4 id="applicationconfig">ApplicationConfig</h4>
+
+<p>Defines 2 beans necessary for authentication.</p>
+
+<ol>
+  <li>Returns a password encoder to encode and validate passwords</li>
+  <li>Returns a authentication provider. It’s the responsible to check if the password given is correct when logging in</li>
+</ol>
+
+<h4 id="securityconfig">SecurityConfig</h4>
+
+<p>Establishes the security rules of our app. For a REST API we need to make it stateless. Here we can define which endpoints are public (don’t need jwt) and which ones do. It’s important for register and login endpoints to be public. We also need to pass it the authentication provider to have it available in our service layer as AuthenticationManager.</p>
+
+<h4 id="authservice">AuthService</h4>
+
+<p>Service layer for register and login endpoints. Needs password encoder to save encoded passwords in the database, JwtService to return tokens and the AuthenticationManager.</p>
+
+<h4 id="authcontroller">AuthController</h4>
+
+<p>Authentication endpoints.</p>
+
+  </main>
+
+  
+  <aside class="sidebar-right">
+    <h4>On this page</h4>
+    <nav id="right-toc" class="right-toc"></nav>
+  </aside>
+  
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="/notes.js"></script>
+
+</body>
+</html>

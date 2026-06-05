@@ -19,6 +19,11 @@ title: Notes
     <div class="note-card-desc">Principles, patterns and architecture design </div>
 </a>
 
+<a href="spring" class="note-card">
+    <div class="note-card-title">Spring</div>
+    <div class="note-card-desc">Deep dive into the framework</div>
+</a>
+
 <a href="now-learning" class="note-card">
     <div class="note-card-title">Now learning</div>
     <div class="note-card-desc">What I want to learn / improve next</div>
